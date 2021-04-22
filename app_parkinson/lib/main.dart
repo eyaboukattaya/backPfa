@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'service/ser.dart';
 import 'model/patient.dart';
+import 'paint-screen.dart';
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
@@ -76,7 +77,11 @@ class AddNewEmployeePage extends StatefulWidget {
 
 class _AddNewEmployeePageState extends State<AddNewEmployeePage> {
  final TextEditingController _controller = TextEditingController();
-  final TextEditingController _controllerPassword = TextEditingController();
+  final TextEditingController _controllerTaille = TextEditingController();
+ final TextEditingController _controllerAge = TextEditingController();
+ final TextEditingController _controllerSexe = TextEditingController();
+ final TextEditingController _controllerPoids = TextEditingController();
+final TextEditingController _controllerPassword = TextEditingController();
   Future<Patients> _futureAlbum;
 
   @override
@@ -101,15 +106,31 @@ class _AddNewEmployeePageState extends State<AddNewEmployeePage> {
                       controller: _controller,
                       decoration: InputDecoration(hintText: 'Enter name'),
                     ),
+                       TextField(
+                      controller: _controllerAge ,
+                      decoration: InputDecoration(hintText: 'Enter your age'),
+                    ),
                       TextField(
                       controller: _controllerPassword ,
                       decoration: InputDecoration(hintText: 'Enter your password'),
+                    ),
+                    TextField(
+                      controller: _controllerTaille,
+                      decoration: InputDecoration(hintText: 'Enter your taille'),
+                    ),
+                    TextField(
+                      controller: _controllerPoids,
+                      decoration: InputDecoration(hintText: 'Enter your poids'),
+                    ),
+                     TextField(
+                      controller: _controllerSexe,
+                      decoration: InputDecoration(hintText: 'Enter your Sexe'),
                     ),
                     ElevatedButton(
                       child: Text('Create Data'),
                       onPressed: () {
                         setState(() {
-                          _futureAlbum =PostsRepository().createPatients(_controller.text,_controllerPassword.text);
+                          _futureAlbum =PostsRepository().createPatients(_controller.text,_controllerAge.text,_controllerPassword.text,_controllerTaille.text,_controllerPoids.text,_controllerSexe.text);
                         });
                       },
                     ),
@@ -130,7 +151,28 @@ class _AddNewEmployeePageState extends State<AddNewEmployeePage> {
                     return CircularProgressIndicator();
                   },
                 ),
+                
         ),
+        
+     floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+            MaterialPageRoute(
+              builder: (context) => PaintScreen(),
+            
+            
+            
+            
+            
+            
+            
+            
+            ),
+          );
+        },
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
       ),
     );
   }
