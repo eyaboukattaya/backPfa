@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'drawing_area.dart';
+
+
+
 
 class Draw extends CustomPainter{
-  List<DrawingArea> coordinates;
+  List<Offset> coordinates;
 
   Draw({@required this.coordinates});
 
@@ -12,29 +14,28 @@ class Draw extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
 
-   for(int x=0;x<coordinates.length -1 ;x++)
-     {
-       if(coordinates[x]!=null && coordinates[x+1]!=null){
-         Paint paint = coordinates[x].areaPaint;
-         canvas.drawLine(coordinates[x].coordinate,coordinates[x+1].coordinate, paint);
-         var cordinate = coordinates.length;
-           print(cordinate);
-           //print(coordinates[x].coordinate);
-           //print(coordinates[x+1].coordinate);
-       }
-       else if(coordinates[x]!=null && coordinates[x+1]==null){
-         Paint paint = coordinates[x].areaPaint;
-         canvas.drawPoints(PointMode.points,[coordinates[x].coordinate], paint);
-           print(coordinates.length); 
-           //print(coordinates[x].coordinate);
-           //print(coordinates[x+1].coordinate);
+  Paint paint = new Paint()
+      ..color = Colors.blue
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 10.0;
 
-       }
-        
-     }
-   
+    for (int i = 0; i < coordinates.length - 1; i++) {
+      if (coordinates[i] != null && coordinates[i + 1] != null) {
+        canvas.drawLine(coordinates[i],coordinates[i + 1], paint);
+        var points = coordinates[i+1];
+           print(points);
+      
+      }
+      else if (coordinates[i] != null && coordinates[i + 1] == null) {
+     
+         canvas.drawPoints(PointMode.points,[coordinates[i]], paint);
+           
+      }
+    }
 
   }
+
+  
 
   @override
   bool shouldRepaint(Draw oldDelegate) => oldDelegate.coordinates!=coordinates;

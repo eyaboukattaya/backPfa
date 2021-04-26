@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/patient.dart';
+import '../model/pedometer.dart';
 import 'dart:convert';
 import 'dart:core';
 import 'package:http/http.dart' as http;
@@ -7,7 +8,7 @@ import 'package:http/http.dart' as http;
 class PostsRepository {
   Future<List<Patients>> getPatients() async {
    
-  var response = await http.get(Uri.encodeFull("http://192.168.1.100:8000/api/patients"), headers: {"Accept": "application/json"});
+  var response = await http.get(Uri.encodeFull("http://192.168.1.101:8000/api/patients"), headers: {"Accept": "application/json"});
   debugPrint(response.body);
 
    if (response.statusCode == 200) {
@@ -19,7 +20,7 @@ class PostsRepository {
   }
 
   Future<Patients> createPatients(String userName,String age,String taille,String poids,String sexe,String password) async {
-  final response = await http.post(Uri.encodeFull("http://192.168.1.100:8000/api/patients"),
+  final response = await http.post(Uri.encodeFull("http://192.168.1.101:8000/api/patients"),
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -48,6 +49,18 @@ class PostsRepository {
     throw Exception('Failed to load patient');
   }
 }
-} 
+ Future<List<Pedometer>> getSteps() async {
+    var response = await http.get(
+        Uri.encodeFull("http://192.168.1.101:8000/api/test1"),
+        headers: {"Accept": "application/json"});
+    if (response.statusCode == 200) {
+      debugPrint(response.body);
+      return PedometerFromJson(response.body);
+    } else {
+      return null;
+    }
+  }
+}
+
 
   

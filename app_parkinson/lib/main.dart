@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'service/ser.dart';
 import 'model/patient.dart';
 import 'paint-screen.dart';
+import 'test1.dart';
+import 'service/ser.dart';
+import 'test2.dart';
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
@@ -144,6 +147,7 @@ final TextEditingController _controllerPassword = TextEditingController();
 
 
                       return Text(snapshot.data.userName );
+                      
                     } else if (snapshot.hasError) {
                       return Text("${snapshot.error}");
                     }
@@ -159,7 +163,7 @@ final TextEditingController _controllerPassword = TextEditingController();
           Navigator.push(context,
             MaterialPageRoute(
               builder: (context) => PaintScreen(),
-            
+          
             
             
             
@@ -168,11 +172,14 @@ final TextEditingController _controllerPassword = TextEditingController();
             
             
             ),
+            
           );
         },
+        
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
+      
       ),
     );
   }
