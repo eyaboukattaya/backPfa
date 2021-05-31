@@ -1,7 +1,6 @@
-
-  
 import 'package:app_parkinson/draw.dart';
 import 'package:app_parkinson/test1.dart';
+
 import 'package:flutter/material.dart';
 
 
@@ -51,6 +50,7 @@ class _PaintScreenState extends State<PaintScreen> {
       body: new Container(
         
         child: new GestureDetector(
+        
           onPanUpdate: (DragUpdateDetails details) {
             setState(() {
               RenderBox object = context.findRenderObject();
@@ -61,10 +61,15 @@ class _PaintScreenState extends State<PaintScreen> {
           },
           onPanEnd: (details) {
                     setState(() {
+                     
                       _coordinates.add(null);
-                       _coordinates.clear();
+                   
+                   
+
+                     
+                     _coordinates.clear();
   
-                    });
+                          });
                   },
           child: new CustomPaint(
             painter: new Draw(coordinates:_coordinates),

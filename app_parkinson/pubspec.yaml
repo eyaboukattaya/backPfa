@@ -24,6 +24,16 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_colorpicker: ^0.3.4
+  font_awesome_flutter: ^8.4.0
+  slimy_card: ^1.0.4
+ 
+  foldable_sidebar: ^1.0.0
+  
+ 
+ 
+
+
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -46,6 +56,22 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+     - assets/parkinson.png
+     - assets/parkTalk.png
+  #fonts:
+    #- family: WorkSansSemiBold
+      #fonts:
+       # - asset: assets/fonts/Work_Sans/WorkSans-SemiBold.ttf
+
+    #- family: WorkSansBold
+     # fonts:
+        #- asset: assets/fonts/Work_Sans/WorkSans-Bold.ttf
+
+    #- family: WorkSansMedium
+    #  fonts:
+       # - asset: assets/fonts/Work_Sans/WorkSans-Medium.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
