@@ -8,40 +8,39 @@ String PatientsToJson(List<Patients> data) =>
 
 class Patients {
   Patients({
-    this.id,
-    this.userName,
+  
+    this.name,
+      this.age,
     this.taille,
     this.sexe,
-    this.poids,
-    this.age,
     this.password,
   });
 
-  final int id;
-  final String userName;
+ 
+  final String name;
   final String sexe;
   final String age;
-  final String poids;
+
   final String taille;
   final String password;
 
   factory Patients.fromJson(Map<String, dynamic> json) => Patients(
-        id: json["id"],
-        userName: json["userName"],
+        
+        name: json["name"],
         age: json["age"],
-        password: json["password"],
-        sexe: json["sexe"],
-        poids: json["poids"],
-        taille: json["taille"],
+          taille: json["taille"],
+           sexe: json["sexe"],
+          password: json["password"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "userName": userName,
+     
+        "name": name,
         "age": age,
-        "password": password,
+  
         "taille": taille,
-        "poids": poids,
         "sexe": sexe,
+        "password": password,
+
       };
 }

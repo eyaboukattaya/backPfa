@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:app_parkinson/service/ser.dart';
 import 'package:flutter/material.dart';
 
-import 'model/drawing.dart';
+import '../model/drawing.dart';
 
 
 class Draw extends CustomPainter {

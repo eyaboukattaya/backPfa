@@ -1,7 +1,8 @@
-import 'package:app_parkinson/draw.dart';
-import 'package:app_parkinson/test1.dart';
+import 'package:app_parkinson/drawing/draw.dart';
+import 'package:app_parkinson/ui/yesPage.dart';
 
 import 'package:flutter/material.dart';
+
 
 
 class PaintScreen extends StatefulWidget {
@@ -16,19 +17,20 @@ class _PaintScreenState extends State<PaintScreen> {
   Widget build(BuildContext context) {
       return Scaffold(
     appBar: AppBar(
+           backgroundColor: Colors.lightBlue[200],
+
         title: Text("Let's paint!!"),
         actions: <Widget>[
           FlatButton(
               child: Row(
                 children: [
-                  Text("Clear", style: TextStyle(color: Colors.white),),
-                  Icon(Icons.delete, color: Colors.white,),
+                  Icon(Icons.home, color: Colors.white,),
                 ],
               ),
                 onPressed: () {
           Navigator.push(context,
             MaterialPageRoute(
-              builder: (context) =>SecondRoute(),
+              builder: (context) =>yesPage(),
           
             
             

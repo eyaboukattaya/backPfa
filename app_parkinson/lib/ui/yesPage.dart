@@ -1,3 +1,5 @@
+import 'package:app_parkinson/drawing/description.dart';
+import 'package:app_parkinson/pedometer/description.dart';
 import 'package:app_parkinson/quiz/description.dart';
 import 'package:foldable_sidebar/foldable_sidebar.dart';
 
@@ -140,9 +142,10 @@ class CustomDrawer extends StatelessWidget {
             color: Colors.grey,
           ),
           ListTile(
-            onTap: () {
-              debugPrint("Tapped settings");
-            },
+                    onTap: () {
+    Navigator.push(context, MaterialPageRoute(
+    	builder: (context) => DescriptionWalking()),);
+},
             leading: Icon(Icons.directions_walk),
             title: Text("Walking Test"),
           ),
@@ -152,8 +155,9 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              debugPrint("Tapped Payments");
-            },
+            Navigator.push(context, MaterialPageRoute(
+    	builder: (context) => DescriptionDrawing()),);
+},
             leading: Icon(Icons.pages),
             title: Text("Drawing Test"),
           ),

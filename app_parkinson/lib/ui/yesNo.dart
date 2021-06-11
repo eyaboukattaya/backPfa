@@ -48,56 +48,71 @@ class YesNo extends StatelessWidget {
 
                  
                 child: Column( 
-                  
-                    
-                
-                             mainAxisAlignment: MainAxisAlignment.center,
-
-                  
-              
-            
-      
-        
-          children: <Widget>[
-            
-                 Padding(
-                                   
-
+               mainAxisAlignment: MainAxisAlignment.center,
+                 children: <Widget>[
+             Padding(
                 padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: Text('Are you on medication?: ',
                     style:
                     TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0,)),
               ),
-              
-         
-               RaisedButton(
-                 
-                  child: Text('Yes'),
-                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                color: Colors.green,
-                  highlightColor: Colors.transparent,
-                 onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => yesPage()),
-  );
-},
-                  shape: RoundedRectangleBorder(
-                    
-                      borderRadius: BorderRadius.horizontal(
-                          left: Radius.circular(30.0),
-                          right: Radius.circular(30.0),
-                          ))
-                          ),
-         
+               Container(
+          padding: const EdgeInsets.all(16),
+            height: 130,
+            child: Card(
+    color: Colors.white,
+              elevation: 10,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                     child: GestureDetector(
+                      onTap: () {
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => yesPage()));
+                      },
+                      child: Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            image: DecorationImage(
+                                image: AssetImage('assets/okk.png'),
+                                fit: BoxFit.cover),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(75.0)),
+                            boxShadow: [
+                              BoxShadow(blurRadius: 7.0, color: Colors.white)
+                            ]),
+                      ),
+                    ),
+                  ),
+          
+             
                   
-             RaisedButton(
-                 highlightColor: Colors.transparent,
-                   color: Colors.red[300],
-                child: Text('no'),
-                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-               
-                 onPressed: (){
+                ],
+              ),
+            ),
+          
+        
+      ),
+         
+     Container(
+       padding: const EdgeInsets.all(16),
+            height: 130,
+            child: Card(
+    color: Colors.white,
+              elevation: 10,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                     child: GestureDetector(
+                      onTap: () {
+  
                       showDialog(
               context: context,
               builder: (BuildContext context) => CustomDialog(
@@ -107,26 +122,42 @@ class YesNo extends StatelessWidget {
                 buttonText: "Okay",
               ),
             );
+            },
 
-},
-
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(30.0),
-                        right: Radius.circular(30.0)))),
+            child: Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            image: DecorationImage(
+                                image: AssetImage('assets/nooo.png'),
+                                fit: BoxFit.cover),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(75.0)),
+                            boxShadow: [
+                              BoxShadow(blurRadius: 7.0, color: Colors.white)
+                            ]),
+                      ),
+     ),
+      ),
+                  
           ],
-          mainAxisSize: MainAxisSize.min,
         ),
+            ),
+     ),
+                 ]
+                )
+              ),
+        ),
+      )
+      );
 
+                
                 
           
            
                   
-                ),
-              ),
-            )
-      
-      );
+             
       
     
   }

@@ -21,16 +21,18 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+
   flutter:
     sdk: flutter
   flutter_colorpicker: ^0.3.4
   font_awesome_flutter: ^8.4.0
-  slimy_card: ^1.0.4
- 
+  pedometer: ^3.0.0
+  permission_handler: ^6.1.1
   foldable_sidebar: ^1.0.0
-  
- 
- 
+  custom_timer: ^0.0.3
+  shared_preferences: ^0.4.3
+
+
 
 
 
@@ -58,8 +60,14 @@ flutter:
   uses-material-design: true
 
   assets:
-     - assets/parkinson.png
-     - assets/parkTalk.png
+      - assets/parkinson.png
+      - assets/parkTalk.png
+      - assets/s_402644714-stock-illustration-man-angry-aggressive-icon-negative.jpg
+      - assets/java.png
+      - assets/moteur1.png
+      - assets/okk.png
+      - assets/nooo.png
+     
   #fonts:
     #- family: WorkSansSemiBold
       #fonts:

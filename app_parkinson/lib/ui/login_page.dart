@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage>
    final FocusNode myFocusNodeAge = FocusNode();
   final FocusNode myFocusNodePoids= FocusNode();
    final FocusNode myFocusNodeSexe = FocusNode();
+     final FocusNode myFocusNodeTaille = FocusNode();
   
   Future<Patients> _futureAlbum;
   TextEditingController loginEmailController = new TextEditingController();
@@ -78,17 +79,17 @@ TextEditingController _controllerPoids=  new TextEditingController();
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: 75.0),
-                      child: new Image(
-                          width: 250.0,
-                          height: 191.0,
-                          fit: BoxFit.fill,
-                          image: new AssetImage('assets/img/login_logo.png')),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20.0),
-                      child: _buildMenuBar(context),
-                    ),
+                   padding: EdgeInsets.only(top: 75.0),
+                  /*child: new Image(
+                      width: 250.0,
+                      height: 191.0,
+                      fit: BoxFit.fill,
+                      image: new AssetImage('assets/img/login_logo.png')),*/
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20.0),
+                  child: _buildMenuBar(context),
+                ),
                     Expanded(
                       flex: 2,
                       child: PageView(
@@ -339,7 +340,12 @@ TextEditingController _controllerPoids=  new TextEditingController();
                       ),
                     ),
                     onPressed: () =>
-                        showInSnackBar("Login button pressed")),
+            Navigator.push(context,
+            MaterialPageRoute(
+              builder: (context) => YesNo()),
+                        //showInSnackBar("Login button pressed")
+                  ),
+              ),
               ),
             ],
           ),
@@ -356,93 +362,7 @@ TextEditingController _controllerPoids=  new TextEditingController();
                       fontFamily: "WorkSansMedium"),
                 )),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: new LinearGradient(
-                        colors: [
-                          Colors.white10,
-                          Colors.white,
-                        ],
-                        begin: const FractionalOffset(0.0, 0.0),
-                        end: const FractionalOffset(1.0, 1.0),
-                        stops: [0.0, 1.0],
-                        tileMode: TileMode.clamp),
-                  ),
-                  width: 100.0,
-                  height: 1.0,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
-                  child: Text(
-                    "Or",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        fontFamily: "WorkSansMedium"),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: new LinearGradient(
-                        colors: [
-                          Colors.white,
-                          Colors.white10,
-                        ],
-                        begin: const FractionalOffset(0.0, 0.0),
-                        end: const FractionalOffset(1.0, 1.0),
-                        stops: [0.0, 1.0],
-                        tileMode: TileMode.clamp),
-                  ),
-                  width: 100.0,
-                  height: 1.0,
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 10.0, right: 40.0),
-                child: GestureDetector(
-                  onTap: () => showInSnackBar("Facebook button pressed"),
-                  child: Container(
-                    padding: const EdgeInsets.all(15.0),
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    child: new Icon(
-                      FontAwesomeIcons.facebookF,
-                      color: Color(0xFF0084ff),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10.0),
-                child: GestureDetector(
-                  onTap: () => showInSnackBar("Google button pressed"),
-                  child: Container(
-                    padding: const EdgeInsets.all(15.0),
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    child: new Icon(
-                      FontAwesomeIcons.google,
-                      color: Color(0xFF0084ff),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          
         ],
       ),
     );
@@ -451,7 +371,7 @@ TextEditingController _controllerPoids=  new TextEditingController();
   Widget _buildSignUp(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 23.0),
-      child: Column(
+      child:Column(
         children: <Widget>[
           Stack(
             alignment: Alignment.topCenter,
@@ -525,7 +445,36 @@ TextEditingController _controllerPoids=  new TextEditingController();
                         height: 1.0,
                         color: Colors.grey[400],
                       ),
-                      Padding(
+                       Padding(
+                        padding: EdgeInsets.only(
+                            top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
+                        child: TextField(
+                          focusNode: myFocusNodeTaille,
+                          controller: _controllerTaille,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(
+                              fontFamily: "WorkSansSemiBold",
+                              fontSize: 16.0,
+                              color: Colors.black),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            icon: Icon(
+                              FontAwesomeIcons.envelope,
+                              color: Colors.black,
+                              size: 22.0,
+                            ),
+                            hintText: "Taille",
+                            hintStyle: TextStyle(
+                                fontFamily: "WorkSansSemiBold", fontSize: 17.0),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 250.0,
+                        height: 1.0,
+                        color: Colors.grey[400],
+                      ),
+                     /* Padding(
                         padding: EdgeInsets.only(
                             top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                         child: TextField(
@@ -552,7 +501,7 @@ TextEditingController _controllerPoids=  new TextEditingController();
                         width: 200.0,
                         height: 1.0,
                         color: Colors.grey[400],
-                      ),
+                      ),*/
                           Padding(
                         padding: EdgeInsets.only(
                             top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
@@ -650,11 +599,12 @@ TextEditingController _controllerPoids=  new TextEditingController();
                       stops: [0.0, 1.0],
                       tileMode: TileMode.clamp),
                 ),
-                child: MaterialButton(
+                child:
+                 MaterialButton(
                     highlightColor: Colors.transparent,
                     splashColor: Theme.Colors.loginGradientEnd,
                     //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                    child: Padding(
+                    child:  Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 20.0),
                       child: Text(
@@ -667,26 +617,36 @@ TextEditingController _controllerPoids=  new TextEditingController();
                     ),
                    onPressed: () {
                         setState(() {
-                          _futureAlbum =PostsRepository().createPatients(_controller.text,_controllerAge.text,_controllerPassword.text,_controllerTaille.text,_controllerPoids.text,_controllerSexe.text);
+                          _futureAlbum =PostsRepository().createPatients(_controller.text,_controllerAge.text,_controllerTaille.text,_controllerSexe.text,_controllerPassword.text);
+                    
                        
-                         Navigator.push(context,
+                              
+                            
+                          
+              
+                      Navigator.push(context,
             MaterialPageRoute(
               builder: (context) => YesNo(),
-              ),
-              );
+              
+              )
                        
                        
                        
-                        });
+                        );
 
                       },
-                        ),
-              ),
+                        );},
+                               
+                                                )
+              )
             ],
           ),
         ],
-      ),
+       )
+       
     );
+
+    
   }
 
   void _onSignInButtonPress() {

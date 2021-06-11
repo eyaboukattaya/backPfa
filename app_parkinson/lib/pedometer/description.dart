@@ -1,7 +1,6 @@
 
 import 'dart:ui';
 
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -9,16 +8,16 @@ import 'package:flutter/cupertino.dart';
 
 
 import 'package:flutter/rendering.dart';
-
+import 'pedometer.dart';
 
 
 
 import 'package:flutter/widgets.dart';
 
-import 'home.dart';
 
 
-class Description extends StatelessWidget {
+
+class DescriptionWalking extends StatelessWidget {
   @override
  
    Widget build(BuildContext context) {
@@ -46,7 +45,7 @@ class Description extends StatelessWidget {
            
               Card(
                   
-                  color: Colors.white54,
+                  color: Colors.white70,
                   elevation: 6.0,
                   margin: EdgeInsets.only(right: 15.0, left: 15.0),
                   shape: RoundedRectangleBorder(
@@ -62,7 +61,7 @@ class Description extends StatelessWidget {
                           margin: EdgeInsets.only(top: 20.0),
                           
                           child: new Text(
-                            'Test 1 quiz description ',
+                            'Test 2 pedometer description ',
                             style: TextStyle(
                                 fontSize: 25.0, color: Colors.black),
                           ),
@@ -119,11 +118,12 @@ class Description extends StatelessWidget {
                     onPressed: () =>
             Navigator.push(context,
             MaterialPageRoute(
-              builder: (context) =>  homepage()),
-                        //showInSnackBar("Login button pressed")
-                  ),
-              ),
-              ),
+            builder: (context) => PedometerTest()),
+                       
+               //   ),
+             ),
+                ),
+    )
                    ],
               ),
    
